@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+
+
+{% block page_title %}{{ section.title }} - Recollection{% endblock %}
+
+
+
+{% block content %}
+
+{{ section.content | safe }}
+
+{% endblock content %}
+
+
+{% block nav %}
+<aside><nav>
+    <ul>
+        <li>{{ section.title }}
+            <ul>
+                {% for cur_page in section.pages %}
+                    <li><a href="{{ cur_page.permalink }}">{{ cur_page.slug }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+    </ul>
+</nav></aside>
+{% endblock %}
+
+

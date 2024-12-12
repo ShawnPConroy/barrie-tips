@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <link rel="stylesheet" href="">
+    <title>{% block page_title %}{{ config.title }}{% endblock %}</title>
+</head>
+
+<body class="{% block body_paras %}{% endblock %}">
+    {% block site_header %}
+    <header class="has-background-dark p-5"><nav class="level">
+        <p class="level-item has-text-centered"><a href="{{ config.base_url}}" class="has-text-primary-light is-size-1">Barrie Tips</a></p>
+        <p class="level-item has-text-centered">
+            <a href="{{ config.base_url }}/stargazing" class="link is-info has-text-link-light">Stargazing</a>
+        </p>
+        <p class="level-item has-text-centered">
+            <a class="link is-info has-text-link-light">Politics</a>
+        </p>
+        <p class="level-item has-text-centered">
+            <a class="link is-info has-text-link-light">Something</a>
+        </p>
+        <p class="level-item has-text-centered">
+            <a class="link is-info has-text-link-light">Contact</a>
+        </p>
+    </nav></header>
+    {% endblock %}
+    <main>
+        {% block content %}{% endblock content %}
+    </main>
+    {% block nav %}{% endblock %}
+    {% block asides_block %}{% endblock_block %}
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>&lt;/&gt; with ❤ in Barrie</p>
+        </div>
+        <details>
+            <summary>Debug Data</summary>
+            <pre>{{ __tera_context }}</pre>
+        </details>
+    </footer>
+
+</body>
+
+</html>

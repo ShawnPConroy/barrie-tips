@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+
+{% block page_title %}{{ page.title }} - Recollection{% endblock %}
+
+
+
+{% block content %}
+
+<h1>{{ page.title }}</h1>
+{{ page.content | safe }}
+
+{% endblock content %}
+
+
+
+{% block nav1 %}
+<nav id="site-nav"><ul class="tree-view">
+    <li>{#{ section.title }#}Section
+{% set last_ancestor = page.ancestors | slice(start=-1) %}
+{% set current_section = get_section(path=last_ancestor.0) %}
+
+    {%- if current_section.pages -%}
+    <ul>
+    {%- for page in current_section.pages %}
+        <li><a href="{{ page.permalink | safe }}">{{ page.title }}</a></li>
+    {%- endfor %}
+    </ul>
+    {%- endif -%}
+    </li>
+</ul></nav>
+{% endblock %}
+
+
+
+{% block toc %}
+<aside>
+    <ul>
+        {% for heading in page.toc %}
+        <li>{{ heading.title }}</li>
+        {% endfor %}
+    </ul>
+</aside>
+{% endblock %}
