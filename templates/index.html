@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block body_paras %} welcome {% endblock %}
+
+
+{% block content %}
+
+{{ section.content | safe }}
+
+
+{% for cur_section_index in section.subsections %}
+    {%- set cur_section = get_section(path=cur_section_index) %}
+    <div><a href="{{ cur_section.permalink | safe }}">{{ cur_section.title }}</a></div>
+    {% endfor %}
+{% endblock content %}
+
+

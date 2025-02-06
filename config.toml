@@ -2,7 +2,7 @@
 base_url = "https://barrie-tips.netlify.app"
 
 # The site title and description; used in feeds by default.
-title = "Barrie-Tips"
+title = "Barrie Tips"
 description = "Tips for living in Barrie, Ontario, Canada."
 
 # The default language; used in feeds.
